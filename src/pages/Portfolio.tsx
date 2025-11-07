@@ -111,7 +111,7 @@ const projects: Project[] = [
       "https://images.unsplash.com/photo-1639322537504-6427a16b0a28?w=800&h=500&fit=crop",
     technologies: ["Ethereum", "IPFS", "Web3.js", "React"],
     category: "Blockchain",
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/Sri174/Decentralizedfilestorage.git",
     featured: true,
   },
   {
