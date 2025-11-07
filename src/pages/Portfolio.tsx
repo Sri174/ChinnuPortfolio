@@ -136,7 +136,7 @@ const projects: Project[] = [
       "/futureself.png",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Genkit", "Stable Diffusion XL"],
     category: "AI/ML",
-    githubUrl: "https://github.com/Chinnu010704/MVAfutureself",
+    githubUrl: "https://github.com/Sri174/FutureSelfaii.git",
     liveUrl: "https://mvafutureself.netlify.app/",
     featured: false,
   },
