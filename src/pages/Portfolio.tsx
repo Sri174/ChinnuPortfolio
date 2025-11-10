@@ -101,11 +101,10 @@ const profile = {
   location: "India",
   githubUrl: "https://github.com/Sri174",
   linkedinUrl: "https://www.linkedin.com/in/veerachinnu-manikandan-19a75826b/",
-  twitterUrl: "https://twitter.com/",
+  twitterUrl: "https://twitter.com/VeerachinnuM",
   resumeUrl: "/Resume Chinnu.pdf",
   imageUrl: "/profile.jpg"
 };
-
 const company = {
   name: "Skill Satron Technologies Pvt. Ltd.",
   url: "https://www.skillsatrontecnologies.com",
@@ -122,7 +121,7 @@ const projects: Project[] = [
       "/blockchain.png",
     technologies: ["Ethereum", "IPFS", "Web3.js", "React"],
     category: "Blockchain",
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/Sri174/Decentralizedfilestorage.git",
     featured: true,
   },
   {
@@ -147,7 +146,7 @@ const projects: Project[] = [
       "/futureself.png",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Genkit", "Stable Diffusion XL"],
     category: "AI/ML",
-    githubUrl: "https://github.com/Chinnu010704/MVAfutureself",
+    githubUrl: "https://github.com/Sri174/FutureSelfaii.git",
     liveUrl: "https://mvafutureself.netlify.app/",
     featured: false,
   },
