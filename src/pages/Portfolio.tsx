@@ -91,7 +91,7 @@ const profile = {
   githubUrl: "https://github.com/Sri174",
   linkedinUrl: "https://www.linkedin.com/in/veerachinnu-manikandan-19a75826b/",
   twitterUrl: "https://twitter.com/",
-  resumeUrl: "https://harmless-tapir-303.convex.cloud/api/storage/25d81795-4181-4a2d-801d-53676f028aa1",
+  resumeUrl: "/Chinnu Resume.pdf",
   imageUrl: "/profile.jpg"
 };
 
