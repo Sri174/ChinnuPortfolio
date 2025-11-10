@@ -27,7 +27,17 @@ import {
   Award,
   Maximize2,
   Printer,
-  Download
+  Download,
+  Cloud, // Added Cloud icon
+  Cpu, // Added Cpu icon for AI/ML
+  Server, // Added Server icon for Backend
+  GitBranch, // Added GitBranch for Git/GitHub
+  Monitor, // Added Monitor for OS/Platforms
+  Lightbulb, // Added Lightbulb for Innovation
+  Users, // Added Users for Collaboration/Team Management
+  Brain, // Added Brain for Critical/Logical thinking
+  Clock, // Added Clock for Time Management
+  Target // Added Target for Problem Solving
 } from "lucide-react";
 import { toast } from "sonner";
 import { 
@@ -46,6 +56,7 @@ import {
 } from "@/components/ui/dialog";
 import Particles from "@/components/Particles.tsx";
 import HeroSection from "@/components/HeroSection";
+import SkillsDropdown from "@/components/SkillsDropdown";
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
 
@@ -91,7 +102,7 @@ const profile = {
   githubUrl: "https://github.com/Sri174",
   linkedinUrl: "https://www.linkedin.com/in/veerachinnu-manikandan-19a75826b/",
   twitterUrl: "https://twitter.com/",
-  resumeUrl: "https://harmless-tapir-303.convex.cloud/api/storage/25d81795-4181-4a2d-801d-53676f028aa1",
+  resumeUrl: "/Resume Chinnu.pdf",
   imageUrl: "/profile.jpg"
 };
 
@@ -108,7 +119,7 @@ const projects: Project[] = [
     description:
       "Blockchain-based decentralized file storage ensuring transparency and reliability for secure data access.",
     image:
-      "https://images.unsplash.com/photo-1639322537504-6427a16b0a28?w=800&h=500&fit=crop",
+      "/blockchain.png",
     technologies: ["Ethereum", "IPFS", "Web3.js", "React"],
     category: "Blockchain",
     githubUrl: "https://github.com",
@@ -175,17 +186,64 @@ const projects: Project[] = [
   },
 ];
 
-const skills: Skill[] = [
-  { name: "Python", level: 85, category: "Backend", icon: <Code className="w-5 h-5" /> },
-  { name: "React", level: 80, category: "Frontend", icon: <Code className="w-5 h-5" /> },
-  { name: "UI/UX Design", level: 85, category: "Design", icon: <Palette className="w-5 h-5" /> },
-  { name: "Problem Solving", level: 85, category: "Core", icon: <Globe className="w-5 h-5" /> },
-  { name: "Communication", level: 90, category: "Core", icon: <Globe className="w-5 h-5" /> },
-  { name: "Frontend", level: 80, category: "Frontend", icon: <Code className="w-5 h-5" /> },
-  { name: "Debugging", level: 85, category: "Core", icon: <Database className="w-5 h-5" /> },
-  { name: "Tableau", level: 90, category: "Data", icon: <Database className="w-5 h-5" /> },
-  { name: "MS Office", level: 93, category: "Productivity", icon: <Globe className="w-5 h-5" /> },
-  { name: "Management", level: 82, category: "Leadership", icon: <Globe className="w-5 h-5" /> },
+const technicalSkills: Skill[] = [
+  { name: "Python", level: 85, category: "Programming", icon: <Code className="w-5 h-5" /> },
+  { name: "JavaScript", level: 85, category: "Programming", icon: <Code className="w-5 h-5" /> },
+  { name: "TypeScript", level: 85, category: "Programming", icon: <Code className="w-5 h-5" /> },
+  { name: "HTML", level: 85, category: "Programming", icon: <Code className="w-5 h-5" /> },
+  { name: "CSS", level: 85, category: "Programming", icon: <Code className="w-5 h-5" /> },
+  { name: "React.js", level: 85, category: "Web Development", icon: <Globe className="w-5 h-5" /> },
+  { name: "MERN Stack", level: 85, category: "Web Development", icon: <Globe className="w-5 h-5" /> },
+  { name: "Node.js", level: 85, category: "Backend & Frameworks", icon: <Server className="w-5 h-5" /> },
+  { name: "Express.js", level: 85, category: "Backend & Frameworks", icon: <Server className="w-5 h-5" /> },
+  { name: "Django", level: 85, category: "Backend & Frameworks", icon: <Server className="w-5 h-5" /> },
+  { name: "Streamlit", level: 85, category: "Backend & Frameworks", icon: <Server className="w-5 h-5" /> },
+  { name: "SQLite", level: 85, category: "Databases", icon: <Database className="w-5 h-5" /> },
+  { name: "MongoDB", level: 85, category: "Databases", icon: <Database className="w-5 h-5" /> },
+  { name: "Firebase Firestore", level: 85, category: "Databases", icon: <Database className="w-5 h-5" /> },
+  { name: "Oracle Cloud (OCI)", level: 85, category: "Cloud & DevOps", icon: <Cloud className="w-5 h-5" /> },
+  { name: "Google Cloud – Vertex AI Prompt Design", level: 85, category: "Cloud & DevOps", icon: <Cloud className="w-5 h-5" /> },
+  { name: "IPFS", level: 85, category: "Cloud & DevOps", icon: <Cloud className="w-5 h-5" /> },
+  { name: "Solidity", level: 85, category: "Blockchain & Web3", icon: <Code className="w-5 h-5" /> },
+  { name: "Hardhat", level: 85, category: "Blockchain & Web3", icon: <Code className="w-5 h-5" /> },
+  { name: "Ethereum", level: 85, category: "Blockchain & Web3", icon: <Code className="w-5 h-5" /> },
+  { name: "Machine Learning & Generative AI", level: 85, category: "AI & Data", icon: <Cpu className="w-5 h-5" /> },
+  { name: "OpenCV and Gen-AI APIs", level: 85, category: "AI & Data", icon: <Cpu className="w-5 h-5" /> },
+  { name: "Data Analysis – Pandas, NumPy", level: 85, category: "AI & Data", icon: <Cpu className="w-5 h-5" /> },
+  { name: "Tableau", level: 85, category: "Tools & Platforms", icon: <Code className="w-5 h-5" /> },
+  { name: "Git", level: 85, category: "Tools & Platforms", icon: <GitBranch className="w-5 h-5" /> },
+  { name: "GitHub", level: 85, category: "Tools & Platforms", icon: <Github className="w-5 h-5" /> },
+  { name: "Google Colab", level: 85, category: "Tools & Platforms", icon: <Code className="w-5 h-5" /> },
+  { name: "MetaMask", level: 85, category: "Tools & Platforms", icon: <Code className="w-5 h-5" /> },
+  { name: "XlsxWriter", level: 85, category: "Tools & Platforms", icon: <Code className="w-5 h-5" /> },
+  { name: "OpenPyXL", level: 85, category: "Tools & Platforms", icon: <Code className="w-5 h-5" /> },
+  { name: "Figma", level: 85, category: "Tools & Platforms", icon: <Palette className="w-5 h-5" /> },
+  { name: "Canva", level: 85, category: "Tools & Platforms", icon: <Palette className="w-5 h-5" /> },
+  { name: "Microsoft Office", level: 85, category: "Tools & Platforms", icon: <Globe className="w-5 h-5" /> },
+  { name: "VS Code", level: 85, category: "Tools & Platforms", icon: <Code className="w-5 h-5" /> },
+  { name: "OpenCV", level: 85, category: "Tools & Platforms", icon: <Cpu className="w-5 h-5" /> },
+  { name: "Stable Diffusion", level: 85, category: "Tools & Platforms", icon: <Cpu className="w-5 h-5" /> },
+  { name: "Gen-AI APIs", level: 85, category: "Tools & Platforms", icon: <Cpu className="w-5 h-5" /> },
+  { name: "NumPy", level: 85, category: "Tools & Platforms", icon: <Cpu className="w-5 h-5" /> },
+  { name: "Pandas", level: 85, category: "Tools & Platforms", icon: <Cpu className="w-5 h-5" /> },
+  { name: "Vercel", level: 85, category: "Deployment", icon: <Cloud className="w-5 h-5" /> },
+  { name: "Netlify", level: 85, category: "Deployment", icon: <Cloud className="w-5 h-5" /> },
+  { name: "Render", level: 85, category: "Deployment", icon: <Cloud className="w-5 h-5" /> },
+  { name: "Railway", level: 85, category: "Deployment", icon: <Cloud className="w-5 h-5" /> },
+  { name: "Windows", level: 85, category: "OS/Platforms", icon: <Monitor className="w-5 h-5" /> },
+  { name: "Ubuntu (Basic)", level: 85, category: "OS/Platforms", icon: <Monitor className="w-5 h-5" /> },
+  { name: "Linux (Basic)", level: 85, category: "OS/Platforms", icon: <Monitor className="w-5 h-5" /> },
+];
+
+const softSkills: Skill[] = [
+  { name: "Leadership & Team Management", level: 90, category: "Soft Skills", icon: <Users className="w-5 h-5" /> },
+  { name: "Problem Solving", level: 90, category: "Soft Skills", icon: <Target className="w-5 h-5" /> },
+  { name: "Public Speaking & Mentoring", level: 90, category: "Soft Skills", icon: <Award className="w-5 h-5" /> },
+  { name: "Communication & Collaboration", level: 90, category: "Soft Skills", icon: <Users className="w-5 h-5" /> },
+  { name: "Time Management", level: 90, category: "Soft Skills", icon: <Clock className="w-5 h-5" /> },
+  { name: "Critical & Logical thinking", level: 90, category: "Soft Skills", icon: <Brain className="w-5 h-5" /> },
+  { name: "Attention to Detail", level: 90, category: "Soft Skills", icon: <Globe className="w-5 h-5" /> },
+  { name: "Creativity & Innovation", level: 90, category: "Soft Skills", icon: <Lightbulb className="w-5 h-5" /> },
 ];
 
 const experiences: Experience[] = [
@@ -249,7 +307,7 @@ const Typewriter = ({ words, typeSpeed = 100, deleteSpeed = 50, delaySpeed = 150
 
 // Minimal ResumePreview component to avoid "Cannot find name 'ResumePreview'"
 const ResumePreview = ({ page1, page2, resumeUrl }: { page1: string; page2: string; resumeUrl: string }) => (
-  <a href={resumeUrl} target="_blank" rel="noopener noreferrer">
+  <a href={resumeUrl} target="_blank" rel="noopener noreferrer" download>
     <Button variant="outline" className="border-[#38F9D7]/40 text-white hover:bg-[#38F9D7]/10 px-8 py-3 rounded-full">
       <Download className="w-4 h-4 mr-2" />
       Download Resume
@@ -261,6 +319,8 @@ export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("hero");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [selectedSkillCategory, setSelectedSkillCategory] = useState("All");
+  const [isSkillFilterOpen, setIsSkillFilterOpen] = useState(false);
   const [contactForm, setContactForm] = useState({
     name: "",
     email: "",
@@ -534,14 +594,14 @@ const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             transition={{ duration: 0.8 }}
           >
             <motion.div
-              className="w-56 h-56 mx-auto mb-8 rounded-full bg-gradient-to-r from-[#14FFEC] to-[#43E97B] p-1"
+              className="w-72 h-72 mx-auto mb-8 rounded-full bg-gradient-to-r from-[#14FFEC] to-[#43E97B] p-1"
               whileHover={{ scale: 1.1 }}
             >
               <div className="w-full h-full rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center">
                 <img
                   src={profile.imageUrl}
                   alt="Profile"
-                  className="w-52 h-52 rounded-full object-cover object-top"
+                  className="w-68 h-68 rounded-full object-cover object-top"
                 />
               </div>
             </motion.div>
@@ -943,38 +1003,124 @@ const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {skills.map((skill, index) => (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
-              >
-                <div className="flex items-center mb-4">
-                  <div className="text-cyan-400 mr-3">{skill.icon}</div>
-                  <h3 className="text-lg font-semibold text-white">{skill.name}</h3>
-                </div>
-                <div className="mb-2">
-                  <div className="flex justify-between text-sm text-white/70 mb-1">
-                    <span>{skill.category}</span>
-                    <span>{skill.level}%</span>
+          <div className="space-y-12">
+            <div>
+              <h3 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-[#14FFEC] to-[#43E97B] bg-clip-text text-transparent">
+                Technical Skills
+              </h3>
+              <div className="max-w-4xl mx-auto">
+                <div className="flex justify-center mb-8">
+                  <div className="relative">
+                    <Button
+                      onClick={() => setIsSkillFilterOpen(!isSkillFilterOpen)}
+                      variant="outline"
+                      className="border-white/30 text-white hover:bg-white/10 rounded-full px-6"
+                    >
+                      <Filter className="w-4 h-4 mr-2" />
+                      {selectedSkillCategory}
+                      {isSkillFilterOpen ? <X className="w-4 h-4 ml-2" /> : <ChevronDown className="w-4 h-4 ml-2" />}
+                    </Button>
+                    {isSkillFilterOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 z-50 w-56 bg-black/80 backdrop-blur-sm rounded-xl border border-white/20 overflow-hidden shadow-lg"
+                      >
+                        <div className="max-h-64 overflow-auto">
+                          {Array.from(new Set(technicalSkills.map(skill => skill.category))).map((category) => (
+                            <button
+                              key={category}
+                              onClick={() => {
+                                setSelectedSkillCategory(category);
+                                setIsSkillFilterOpen(false);
+                              }}
+                              className={`w-full px-4 py-2 text-left hover:bg-white/10 transition-colors ${
+                                selectedSkillCategory === category ? "bg-white/20 text-[#14FFEC]" : "text-white"
+                              }`}
+                            >
+                              {category}
+                            </button>
+                          ))}
+                          <button
+                            key="All"
+                            onClick={() => {
+                              setSelectedSkillCategory("All");
+                              setIsSkillFilterOpen(false);
+                            }}
+                            className={`w-full px-4 py-2 text-left hover:bg-white/10 transition-colors ${
+                              selectedSkillCategory === "All" ? "bg-white/20 text-[#14FFEC]" : "text-white"
+                            }`}
+                          >
+                            All Skills
+                          </button>
+                        </div>
+                      </motion.div>
+                    )}
                   </div>
-                  <div className="w-full bg-white/20 rounded-full h-2">
-                    <motion.div
-                      className="bg-gradient-to-r from-[#14FFEC] to-[#43E97B] h-2 rounded-full"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      transition={{ duration: 1, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                    />
-                  </div>
                 </div>
-              </motion.div>
-            ))}
+                
+                <div className="space-y-4">
+                  {Array.from(new Set(technicalSkills.map(skill => skill.category))).map((category) => (
+                    selectedSkillCategory === "All" || selectedSkillCategory === category ? (
+                      <motion.div
+                        key={category}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true }}
+                        className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden"
+                      >
+                        <div className="p-5">
+                          <div className="flex items-center gap-3 mb-4">
+                            <div className="w-10 h-10 rounded-lg bg-[#38F9D7]/20 flex items-center justify-center">
+                              {technicalSkills.filter(skill => skill.category === category)[0]?.icon}
+                            </div>
+                            <h4 className="text-xl font-semibold text-[#38F9D7]">{category}</h4>
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                            {technicalSkills
+                              .filter(skill => skill.category === category)
+                              .map((skill, index) => (
+                                <span 
+                                  key={skill.name}
+                                  className="px-3 py-1.5 bg-white/10 rounded-lg text-sm text-white border border-white/20"
+                                >
+                                  {skill.name}
+                                </span>
+                              ))
+                            }
+                          </div>
+                        </div>
+                      </motion.div>
+                    ) : null
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-[#14FFEC] to-[#43E97B] bg-clip-text text-transparent">
+                Soft Skills
+              </h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {softSkills.map((skill, index) => (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: index * 0.05 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.05 }}
+                    className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/20"
+                  >
+                    <div className="flex items-center justify-center flex-col text-center">
+                      <div className="text-cyan-400 mb-2">{skill.icon}</div>
+                      <h3 className="text-lg font-semibold text-white mb-1">{skill.name}</h3>
+                      <span className="text-xs text-white/70">{skill.category}</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
