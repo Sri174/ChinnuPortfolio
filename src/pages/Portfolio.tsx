@@ -57,6 +57,7 @@ import {
 import Particles from "@/components/Particles.tsx";
 import HeroSection from "@/components/HeroSection";
 import SkillsDropdown from "@/components/SkillsDropdown";
+import SkillsTabs from "@/components/SkillsTabs";
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
 
@@ -269,6 +270,10 @@ const certifications: Certification[] = [
   { title: "Prompt Design in Vertex AI (Badge)", issuer: "Google Cloud" },
   { title: "Journey to Cloud: Envisioning Your Solution", issuer: "IBM SkillBuild" },
   { title: "Career Essentials in Generative AI", issuer: "Microsoft & LinkedIn" },
+  { title: "Introduction to Agile Methodology", issuer: "Infosys Springboard" },
+  { title: "Continuous Integration & Delivery (CI/CD) – DevOps", issuer: "Infosys Springboard" },
+  { title: "MERN Stack", issuer: "Naan Mudhalvan" },
+  { title: "Android App Development", issuer: "Naan Mudhalvan" },
 ];
 
 import CertificateModal from "@/components/CertificateModal";
@@ -325,6 +330,7 @@ export default function Portfolio() {
     email: "",
     message: ""
   });
+  const [selectedExp, setSelectedExp] = useState<Experience | null>(null);
 
   const [bgOffset, setBgOffset] = useState<{ x: number; y: number }>({ x: 50, y: 50 });
   const [selectedCertification, setSelectedCertification] = useState<Certification | null>(null);
@@ -343,6 +349,14 @@ export default function Portfolio() {
     : projects.filter(p => p.category === selectedCategory);
 
   useEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+    
+    return () => {
+      document.documentElement.style.scrollBehavior = '';
+    };
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => {
       const sections = ["hero", "about", "leadership", "experience", "projects", "resume", "skills", "certifications", "contact"];
       const scrollPosition = window.scrollY + 100;
@@ -350,8 +364,8 @@ export default function Portfolio() {
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
             setActiveSection(section);
             break;
           }
@@ -452,6 +466,23 @@ const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     );
   }
 };
+
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const [scrollY, setScrollY] = useState(0);
+  const [backgroundY, setBackgroundY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const newScrollY = window.scrollY;
+      setScrollY(newScrollY);
+      // Calculate background position based on scroll (parallax effect)
+      setBackgroundY(Math.min(newScrollY * 0.2, 20)); // Max 20px movement
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
  <div
@@ -566,27 +597,68 @@ const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="w-9 h-9 rounded-full border border-white/20 hover:border-white/40 bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center"
+                className="w-10 h-10 rounded-full border border-white/20 hover:border-white/40 bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center"
               >
-                <Github className="w-5 h-5 text-white" />
+                <Github className="w-6 h-6 text-white" />
               </a>
               <a
                 href={profile.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="w-9 h-9 rounded-full border border-white/20 hover:border-white/40 bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center"
+                className="w-10 h-10 rounded-full border border-white/20 hover:border-white/40 bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center"
               >
-                <Linkedin className="w-5 h-5 text-white" />
+                <Linkedin className="w-6 h-6 text-white" />
               </a>
             </div>
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden text-white focus:outline-none relative w-8 h-6 flex items-center justify-center"
+              aria-label="Toggle menu"
+            >
+              <span className={`absolute w-full h-0.5 bg-white rounded-full transition-all duration-400 ${isMobileMenuOpen ? 'rotate-45' : 'translate-y-[-6px]'}`}></span>
+              <span className={`absolute w-full h-0.5 bg-white rounded-full transition-all duration-400 ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+              <span className={`absolute w-full h-0.5 bg-white rounded-full transition-all duration-400 ${isMobileMenuOpen ? '-rotate-45' : 'translate-y-[6px]'}`}></span>
+            </button>
           </div>
         </div>
       </motion.nav>
 
       {/* Hero Section */}
-      <section id="hero" className="min-h-[90vh] flex items-center justify-center relative pt-16">
-        <div className="max-w-screen-xl mx-auto px-0 text-center">
+      <section id="hero" className="min-h-[90vh] flex items-center justify-center relative pt-16 overflow-hidden">
+        {/* Animated Radial Gradient - Only for large screens */}
+        <motion.div 
+          className="hidden lg:block absolute inset-0 z-0"
+          animate={{
+            background: [
+              'radial-gradient(circle at 30% 50%, rgba(20, 255, 236, 0.1) 0%, transparent 40%)',
+              'radial-gradient(circle at 70% 50%, rgba(67, 233, 123, 0.1) 0%, transparent 40%)',
+              'radial-gradient(circle at 50% 30%, rgba(56, 249, 215, 0.1) 0%, transparent 40%)',
+              'radial-gradient(circle at 30% 50%, rgba(20, 255, 236, 0.1) 0%, transparent 40%)',
+            ]
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        
+        {/* Parallax Background */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: 'url(/bg.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            transform: `translate3d(0, ${-backgroundY}px, 0)`,
+            transition: 'transform 0.1s ease-out',
+            willChange: 'transform'
+          }}
+        />
+        
+        {/* Content */}
+        <div className="max-w-screen-xl mx-auto px-4 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -678,13 +750,14 @@ const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               About Me
             </h2>
             <div className="max-w-4xl mx-auto">
-              <p className="text-lg text-white/80 mb-8 leading-relaxed">
-                Motivated AI & Data Science student with leadership experience as
-                Co‑Founder & COO at a startup and Technical Mentor. Passionate about
-                building usable products, debugging, and collaborating to ship quality
-                software. Eager to apply AI and full‑stack skills to real‑world projects.
+              <p className="text-lg text-white/80 mb-10 leading-relaxed">
+                Hi, I’m a full-stack developer who enjoys transforming imagination into working products. My journey started with curiosity about how apps function — now, I build them!
+I love experimenting with design, developing APIs, integrating AI models, and crafting smooth user experiences. Whether it’s a fun side project or a large-scale system, I enjoy solving challenges and learning something new every day.
+Outside of code, I explore UI/UX trends, read about tech, and brainstorm new project ideas.
+
+
               </p>
-              <div className="grid md:grid-cols-3 gap-8">
+              <div className="grid md:grid-cols-3 gap-10">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
@@ -731,7 +804,7 @@ const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-5xl md:text-7xl font-bold font-[Georgia,serif] mb-6 bg-gradient-to-r from-[#14FFEC] to-[#43E97B] bg-clip-text text-transparent">
+            <h2 className="text-5xl md:text-7xl font-bold font-[Georgia,serif] mb-10 bg-gradient-to-r from-[#14FFEC] to-[#43E97B] bg-clip-text text-transparent">
               Leadership — COO @ Skill Satron Technologies
             </h2>
             <p className="text-lg text-white/80 max-w-3xl mx-auto">
@@ -827,40 +900,69 @@ const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="max-w-3xl mx-auto space-y-4">
             {experiences.map((exp, idx) => (
               <motion.div
                 key={exp.role + exp.company}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                transition={{ duration: 0.45, delay: idx * 0.06 }}
                 viewport={{ once: true }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+                onClick={() => setSelectedExp(exp)}
+                className={`group relative overflow-hidden rounded-2xl border backdrop-blur-md cursor-pointer 
+                           transition-all duration-300 border-white/15 bg-white/8 hover:bg-white/12 shadow-lg`}
               >
-                <div className="flex items-start justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#14FFEC] to-[#43E97B] flex items-center justify-center">
+                <div className="px-6 py-4 flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#14FFEC] to-[#43E97B] flex items-center justify-center shrink-0">
                       <Briefcase className="w-5 h-5 text-black" />
                     </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-white">{exp.role}</h3>
-                      {exp.company.includes("Skill Satron") ? (
+                    <div className="min-w-0">
+                      <h3 className="text-lg md:text-xl font-semibold text-white truncate">{exp.role}</h3>
+                      {exp.company.includes('Skill Satron') ? (
                         <a href={company.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/80 hover:text-white">
-                          {/* logo shown if present in /public */}
                           <img src={company.logoPath} alt="Skill Satron Logo" className="w-5 h-5 rounded-sm object-contain" onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }} />
-                          <span>{company.name}</span>
+                          <span className="truncate">{company.name}</span>
                         </a>
                       ) : (
-                        <p className="text-white/70">{exp.company}</p>
+                        <p className="text-white/70 truncate">{exp.company}</p>
                       )}
                     </div>
                   </div>
-                  <span className="text-sm text-white/60">{exp.period}</span>
+                  <span className="text-xs md:text-sm text-white/70 whitespace-nowrap">{exp.period}</span>
                 </div>
-                <p className="text-white/80 mt-4">{exp.description}</p>
+                {/* subtle border glow */}
+                <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10 group-hover:ring-white/20" />
               </motion.div>
             ))}
           </div>
+
+          {/* Experience Modal */}
+          <Dialog open={!!selectedExp} onOpenChange={(open) => !open && setSelectedExp(null)}>
+            <DialogContent className="w-[92vw] sm:w-auto sm:max-w-2xl lg:max-w-3xl bg-white/10 backdrop-blur-xl border border-white/20 text-white rounded-2xl p-0 overflow-hidden">
+              {selectedExp && (
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }}>
+                  <div className="p-6 sm:p-8 max-h-[88vh] overflow-auto">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#14FFEC] to-[#43E97B] flex items-center justify-center">
+                          <Briefcase className="w-5 h-5 text-black" />
+                        </div>
+                        <div className="min-w-0">
+                          <h3 className="text-xl sm:text-2xl font-semibold truncate">{selectedExp.role}</h3>
+                          <p className="text-white/80 truncate">{selectedExp.company}</p>
+                        </div>
+                      </div>
+                      <span className="text-sm sm:text-base text-white/70 whitespace-nowrap">{selectedExp.period}</span>
+                    </div>
+                    <div className="mt-5 text-white/85 leading-relaxed text-sm sm:text-base">
+                      {selectedExp.description}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </DialogContent>
+          </Dialog>
         </div>
       </section>
 
@@ -1004,96 +1106,8 @@ const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
           <div className="space-y-12">
             <div>
-              <h3 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-[#14FFEC] to-[#43E97B] bg-clip-text text-transparent">
-                Technical Skills
-              </h3>
-              <div className="max-w-4xl mx-auto">
-                <div className="flex justify-center mb-8">
-                  <div className="relative">
-                    <Button
-                      onClick={() => setIsSkillFilterOpen(!isSkillFilterOpen)}
-                      variant="outline"
-                      className="border-white/30 text-white hover:bg-white/10 rounded-full px-6"
-                    >
-                      <Filter className="w-4 h-4 mr-2" />
-                      {selectedSkillCategory}
-                      {isSkillFilterOpen ? <X className="w-4 h-4 ml-2" /> : <ChevronDown className="w-4 h-4 ml-2" />}
-                    </Button>
-                    {isSkillFilterOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 z-50 w-56 bg-black/80 backdrop-blur-sm rounded-xl border border-white/20 overflow-hidden shadow-lg"
-                      >
-                        <div className="max-h-64 overflow-auto">
-                          {Array.from(new Set(technicalSkills.map(skill => skill.category))).map((category) => (
-                            <button
-                              key={category}
-                              onClick={() => {
-                                setSelectedSkillCategory(category);
-                                setIsSkillFilterOpen(false);
-                              }}
-                              className={`w-full px-4 py-2 text-left hover:bg-white/10 transition-colors ${
-                                selectedSkillCategory === category ? "bg-white/20 text-[#14FFEC]" : "text-white"
-                              }`}
-                            >
-                              {category}
-                            </button>
-                          ))}
-                          <button
-                            key="All"
-                            onClick={() => {
-                              setSelectedSkillCategory("All");
-                              setIsSkillFilterOpen(false);
-                            }}
-                            className={`w-full px-4 py-2 text-left hover:bg-white/10 transition-colors ${
-                              selectedSkillCategory === "All" ? "bg-white/20 text-[#14FFEC]" : "text-white"
-                            }`}
-                          >
-                            All Skills
-                          </button>
-                        </div>
-                      </motion.div>
-                    )}
-                  </div>
-                </div>
-                
-                <div className="space-y-4">
-                  {Array.from(new Set(technicalSkills.map(skill => skill.category))).map((category) => (
-                    selectedSkillCategory === "All" || selectedSkillCategory === category ? (
-                      <motion.div
-                        key={category}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        viewport={{ once: true }}
-                        className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden"
-                      >
-                        <div className="p-5">
-                          <div className="flex items-center gap-3 mb-4">
-                            <div className="w-10 h-10 rounded-lg bg-[#38F9D7]/20 flex items-center justify-center">
-                              {technicalSkills.filter(skill => skill.category === category)[0]?.icon}
-                            </div>
-                            <h4 className="text-xl font-semibold text-[#38F9D7]">{category}</h4>
-                          </div>
-                          <div className="flex flex-wrap gap-2">
-                            {technicalSkills
-                              .filter(skill => skill.category === category)
-                              .map((skill, index) => (
-                                <span 
-                                  key={skill.name}
-                                  className="px-3 py-1.5 bg-white/10 rounded-lg text-sm text-white border border-white/20"
-                                >
-                                  {skill.name}
-                                </span>
-                              ))
-                            }
-                          </div>
-                        </div>
-                      </motion.div>
-                    ) : null
-                  ))}
-                </div>
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <SkillsTabs />
               </div>
             </div>
             <div>
@@ -1148,27 +1162,27 @@ const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                 key={c.title + c.issuer}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                whileHover={{ y: -6, rotate: 0.3 }}
+                whileHover={{ y: -10, scale: 1.03, rotate: 0.5 }}
                 transition={{ duration: 0.5, delay: idx * 0.05 }}
                 viewport={{ once: true }}
-                className="group relative overflow-hidden bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transition-all duration-300 hover:border-cyan-400/40 hover:shadow-[0_0_0_1px_rgba(34,197,235,0.25)]"
+                className="certificate-card group relative overflow-hidden bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 h-64 shadow-md"
                 onClick={() => setSelectedCertification(c)}
               >
                 {/* subtle gradient glow */}
-                <div className="pointer-events-none absolute -top-12 -right-12 h-40 w-40 rounded-full bg-gradient-to-br from-[#14FFEC]/25 to-[#43E97B]/25 blur-2xl" />
+                <div className="pointer-events-none absolute -top-12 -right-12 h-40 w-40 rounded-full bg-gradient-to-br from-[#14FFEC]/25 to-[#43E97B]/25 blur-2xl opacity-70 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110 certificate-glow" />
 
-                <div className="flex flex-col items-center text-center gap-3 h-full">
+                <div className="flex flex-col items-center text-center gap-4 h-full">
                   <div className="flex flex-col items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#14FFEC] to-[#43E97B] flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#14FFEC] to-[#43E97B] flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                       <Award className="w-5 h-5 text-black" />
                     </div>
                     <div>
-                      <h3 className="text-base font-semibold text-white">{c.title}</h3>
+                      <h3 className="text-base font-semibold text-white leading-tight px-2 transition-colors duration-300 group-hover:text-[#38F9D7]">{c.title}</h3>
                       <p className="text-xs text-white/60">Awarded</p>
                     </div>
                   </div>
 
-                  <Badge variant="outline" className="border-white/30 text-white/80 mt-auto">
+                  <Badge variant="outline" className="border-white/30 text-white/80 mt-4 px-3 py-1.5 text-sm transition-all duration-300 group-hover:border-[#38F9D7]/50 group-hover:bg-[#38F9D7]/10">
                     {c.issuer}
                   </Badge>
                 </div>
@@ -1199,7 +1213,7 @@ const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -1252,7 +1266,7 @@ const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="space-y-8"
+              className="space-y-10"
             >
               <div>
                 <h3 className="text-3xl font-semibold font-[Georgia,serif] text-white mb-6">Get In Touch</h3>
