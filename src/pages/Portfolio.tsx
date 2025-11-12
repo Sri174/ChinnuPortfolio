@@ -113,6 +113,21 @@ const company = {
 };
 
 const projects: Project[] = [
+    {
+    id: "p4",
+    title: "Futureself AI",
+    description:
+      "Inspires students by visualizing their future selves in dream professions using Stable Diffusion xl. Dual journeys (ages 5–10 and 11–17) with a personality quiz, camera/upload input, and a personalized, shareable result card.",
+    image:
+      "/futureself.png",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Genkit", "Stable Diffusion XL"],
+    category: "AI/ML",
+    githubUrl: "https://github.com/Sri174/FutureSelfaii.git",
+    liveUrl: "https://mvafutureself.netlify.app/",
+    featured: false,
+  },
+
+  
   {
     id: "p1",
     title: "Decentralized File Storage",
@@ -138,7 +153,8 @@ const projects: Project[] = [
     liveUrl: "https://z7i.in/",
     featured: false,
   },
-  {
+
+    {
     id: "p4",
     title: "Futureself AI",
     description:
@@ -151,6 +167,7 @@ const projects: Project[] = [
     liveUrl: "https://mvafutureself.netlify.app/",
     featured: false,
   },
+
   {
     id: "p5",
     title: "Payroll Desktop App",
@@ -180,8 +197,33 @@ const projects: Project[] = [
       "XlsxWriter"
     ],
     category: "Software",
-    githubUrl: "https://github.com/Sri174/LMS_Report_Generator" ,
+    githubUrl: "https://github.com/Sri174/LMS_Report_Generator",
     liveUrl: "https://lmsreportgenerator.streamlit.app/",
+    featured: false,
+  },
+  {
+    id: "p7",
+    title: "Dreamscape Room Builder AI",
+    description:
+      An AI-powered interior design tool that allows users to visualize and design rooms with artificial intelligence. Frontend application for creating dream spaces with interactive design features.",
+    image:
+      "/dream.png",
+    technologies: ["React", "AI/ML", "Web Design"],
+    category: "AI/ML",
+    githubUrl: "https://github.com/Sri174/dreamscape-room-builder-ai.git",
+    liveUrl: "https://dreamscape-room-builder-ai-rn7y.vercel.app/",
+    featured: false,
+  },
+   {
+    id: "p8",
+    title: "Virtual AI Interior Designer",
+    description:
+      "Intelligent interior design assistant that uses artificial intelligence to provide personalized design recommendations and visualizations for your space.",
+    image:
+      "/VAII.png",
+    technologies: ["React", "AI/ML", "Python", "Design"],
+    category: "AI/ML",
+    githubUrl: "https://github.com/Sri174/Virtual_AI_Interior.git",
     featured: false,
   },
 ];
