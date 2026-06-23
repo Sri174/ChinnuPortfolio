@@ -1,0 +1,395 @@
+/* Responsive Animations - Device-wise optimization */
+
+/* ============================================
+   DESKTOP ANIMATIONS (Hover-capable devices)
+   ============================================ */
+@media (hover: hover) and (pointer: fine) {
+  /* Button animations */
+  button {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Link animations */
+  a {
+    transition: all 0.3s ease;
+  }
+
+  a:hover {
+    opacity: 0.8;
+  }
+
+  /* Card animations */
+  .card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* ============================================
+   MOBILE/TABLET TOUCH ANIMATIONS
+   ============================================ */
+@media (hover: none) and (pointer: coarse) {
+  /* Reduce transition duration on touch devices */
+  button,
+  a,
+  .card,
+  .interactive-element {
+    transition: all 0.15s ease;
+  }
+
+  /* Active/pressed state for buttons */
+  button:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+
+  /* Active state for links */
+  a:active {
+    opacity: 0.7;
+  }
+
+  /* Active state for cards */
+  .card:active {
+    transform: scale(0.98);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Prevent double-tap zoom on buttons */
+  button {
+    touch-action: manipulation;
+  }
+
+  /* Disable hover effects on touch devices */
+}
+
+/* ============================================
+   SMALL SCREENS (Mobile phones)
+   ============================================ */
+@media (max-width: 640px) {
+  /* Reduce padding on small screens */
+  button,
+  input,
+  select,
+  textarea {
+    padding: 0.5rem 1rem;
+  }
+
+  /* Increase touch target size */
+  button,
+  a[role="button"],
+  input[type="checkbox"],
+  input[type="radio"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Optimize animations for performance */
+  * {
+    transition-duration: 0.15s;
+  }
+
+  /* Reduce animation complexity */
+  .animate-float {
+    animation: float 8s ease-in-out infinite;
+  }
+}
+
+/* ============================================
+   MEDIUM SCREENS (Tablets)
+   ============================================ */
+@media (640px < width <= 1024px) {
+  /* Standard transitions */
+  button,
+  a,
+  .card {
+    transition: all 0.2s ease;
+  }
+
+  /* Moderate scaling */
+  @media (hover: none) and (pointer: coarse) {
+    button:active {
+      transform: scale(0.99);
+    }
+
+    .card:active {
+      transform: scale(0.98);
+    }
+  }
+}
+
+/* ============================================
+   LARGE SCREENS (Desktops)
+   ============================================ */
+@media (min-width: 1024px) {
+  /* Full animations on large screens */
+  button,
+  a,
+  .card {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Enhanced hover states */
+  @media (hover: hover) and (pointer: fine) {
+    button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+/* ============================================
+   ANIMATION PERFORMANCE OPTIMIZATION
+   ============================================ */
+
+/* Use transform and opacity for better performance */
+.fade-in {
+  animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.4s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* GPU acceleration for animations */
+.will-animate {
+  will-change: transform, opacity;
+}
+
+/* ============================================
+   TOUCH FEEDBACK
+   ============================================ */
+@media (hover: none) and (pointer: coarse) {
+  /* Provide visual feedback for touch interactions */
+  .touch-feedback:active {
+    background-color: rgba(102, 11, 5, 0.1);
+  }
+
+  /* Disable active outline to avoid flashing */
+  *:active {
+    outline: none;
+  }
+}
+
+/* ============================================
+   POINTER DEVICE SPECIFIC STYLES
+   ============================================ */
+
+/* Fine pointer devices (mouse) */
+@media (pointer: fine) {
+  /* Show detailed hover states */
+  .has-hover-state:hover {
+    background-color: rgba(102, 11, 5, 0.05);
+    border-color: rgba(102, 11, 5, 0.2);
+  }
+}
+
+/* Coarse pointer devices (touch) */
+@media (pointer: coarse) {
+  /* Larger touch targets */
+  .touch-target {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 12px;
+  }
+
+  /* Simplified hover states */
+  .has-hover-state {
+    background-color: transparent;
+    border-color: transparent;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY - REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   DARK MODE ANIMATIONS
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+  @media (hover: hover) and (pointer: fine) {
+    .card:hover {
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+/* ============================================
+   LANDSCAPE vs PORTRAIT ORIENTATION
+   ============================================ */
+@media (orientation: portrait) {
+  /* Optimize for portrait */
+  .vertical-layout {
+    flex-direction: column;
+  }
+}
+
+@media (orientation: landscape) {
+  /* Optimize for landscape */
+  .vertical-layout {
+    flex-direction: row;
+  }
+}
+
+/* ============================================
+   TOUCH-ACTIVE FEEDBACK STATES
+   ============================================ */
+
+/* Touch-active class for all interactive elements */
+.touch-active {
+  transform: scale(0.98) !important;
+  transition: all 0.1s ease !important;
+}
+
+/* Skill cards touch feedback */
+.skill-card.touch-active {
+  transform: scale(0.98) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Certificates touch feedback */
+.certificate-card.touch-active {
+  transform: scale(0.97) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Badge touch feedback */
+.skill-badge.touch-active {
+  transform: scale(0.98) !important;
+  opacity: 0.9 !important;
+}
+
+/* Button touch feedback */
+button.touch-active,
+[role="button"].touch-active {
+  transform: scale(0.98) !important;
+  opacity: 0.9 !important;
+}
+
+/* Profile image container touch feedback */
+.profile-image-container.touch-active {
+  transform: scale(0.98) !important;
+}
+
+/* Interactive element touch feedback */
+.interactive-element.touch-active {
+  opacity: 0.85 !important;
+}
+
+/* ============================================
+   FRAMER MOTION + TOUCH SUPPORT
+   ============================================ */
+
+/* Ensure Framer Motion animations work on touch */
+@media (hover: none) and (pointer: coarse) {
+  /* Allow whileTap animations to show */
+  [data-motion-start] {
+    transition: none;
+  }
+
+  /* Enhanced touch target sizes */
+  button,
+  [role="button"],
+  a[role="button"],
+  .interactive-element {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Touch-friendly spacing */
+  button {
+    padding: 0.75rem 1rem;
+  }
+
+  /* Visible touch feedback for cards */
+  .skill-card {
+    position: relative;
+    z-index: 1;
+  }
+
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(102, 11, 5, 0.05);
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .skill-card.touch-active::before {
+    opacity: 1;
+  }
+
+  /* Badge ripple effect on touch */
+  .skill-badge {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-badge::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(139, 75, 71, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+    pointer-events: none;
+  }
+
+  .skill-badge.touch-active::after {
+    width: 100px;
+    height: 100px;
+  }
+}

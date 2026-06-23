@@ -13,7 +13,7 @@ export default function Typewriter({
   loop = 1,
   typeSpeed = 100,
   deleteSpeed = 50,
-  delaySpeed = 1000,
+  delaySpeed = 700
 }: TypewriterProps) {
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -72,7 +72,7 @@ export default function Typewriter({
       <style>{`
         .typewriter-text {
           display: inline-block;
-          color: #38F9D7;
+          color: #1e5a6b;
           font-weight: 600;
           font-size: 1.5rem;
           margin: 0.5rem 0;

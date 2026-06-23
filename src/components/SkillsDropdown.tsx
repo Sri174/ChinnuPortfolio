@@ -45,12 +45,12 @@ const skillCategories: SkillCategory[] = [
   {
     name: "Backend & Frameworks",
     icon: <Server className="w-4 h-4" />,
-    skills: ["Node.js", "Express.js", "Django", "Streamlit"],
+    skills: ["Node.js", "Django", "Streamlit"],
   },
   {
     name: "Databases",
     icon: <Database className="w-4 h-4" />,
-    skills: ["SQLite", "MongoDB", "Firebase Firestore"],
+    skills: ["SQLite", "MongoDB", "Firebase Firestore", "MySQL"],
   },
   {
     name: "Cloud & DevOps",
@@ -59,6 +59,7 @@ const skillCategories: SkillCategory[] = [
       "Oracle Cloud (OCI)",
       "Google Cloud – Vertex AI Prompt Design",
       "IPFS (Inter-Planetary File System)",
+      "Google Generative AI",
     ],
   },
   {
@@ -95,6 +96,7 @@ const skillCategories: SkillCategory[] = [
       "Gen-AI APIs",
       "NumPy",
       "Pandas",
+      "Antigravity",
     ],
   },
   {
@@ -153,7 +155,7 @@ export default function SkillsDropdown() {
         >
           <Button
             variant="outline"
-            className="border-[#38F9D7]/40 text-white hover:bg-[#38F9D7]/10 px-8 py-6 rounded-full text-lg font-semibold bg-white/10 backdrop-blur-sm shadow-lg hover:shadow-[#38F9D7]/20 transition-all duration-300"
+            className="border-[#1e5a6b]/40 text-black hover:bg-[#1e5a6b]/10 px-8 py-6 rounded-full text-lg font-semibold bg-white/10 backdrop-blur-sm shadow-lg hover:shadow-[#1e5a6b]/20 transition-all duration-300"
           >
             <Zap className="w-5 h-5 mr-2" />
             Browse All Skills by Category
@@ -167,7 +169,7 @@ export default function SkillsDropdown() {
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="center"
-        className="w-80 bg-gradient-to-br from-black/95 via-[#0F2027]/95 to-black/95 backdrop-blur-md border border-[#38F9D7]/30 shadow-2xl rounded-2xl p-3 max-h-[600px] overflow-y-auto"
+        className="w-80 bg-gradient-to-br from-black/95 via-[#0F2027]/95 to-black/95 backdrop-blur-md border border-[#1e5a6b]/30 shadow-2xl rounded-2xl p-3 max-h-[600px] overflow-y-auto"
         sideOffset={10}
         style={{
           scrollbarWidth: 'thin',
@@ -190,7 +192,7 @@ export default function SkillsDropdown() {
                 }}
               >
                 <DropdownMenuSubTrigger
-                  className="text-white hover:bg-gradient-to-r hover:from-[#38F9D7]/20 hover:to-[#43E97B]/20 hover:text-[#38F9D7] data-[state=open]:bg-gradient-to-r data-[state=open]:from-[#38F9D7]/20 data-[state=open]:to-[#43E97B]/20 data-[state=open]:text-[#38F9D7] rounded-lg px-3 py-2.5 cursor-pointer transition-all duration-200 focus:bg-[#38F9D7]/20 focus:text-[#38F9D7] group w-full [&>svg]:hidden"
+                  className="text-black hover:bg-gradient-to-r hover:from-[#144552]/20 hover:to-[#1e5a6b]/20 hover:text-[#144552] data-[state=open]:bg-gradient-to-r data-[state=open]:from-[#144552]/20 data-[state=open]:to-[#1e5a6b]/20 data-[state=open]:text-[#144552] rounded-lg px-3 py-2.5 cursor-pointer transition-all duration-200 focus:bg-[#144552]/20 focus:text-[#144552] group w-full [&>svg]:hidden"
                   onMouseEnter={() => setHoveredCategory(category.name)}
                   onMouseLeave={() => setHoveredCategory(null)}
                   onSelect={(e) => {
@@ -205,7 +207,7 @@ export default function SkillsDropdown() {
                           scale: hoveredCategory === category.name ? 1.1 : 1,
                         }}
                         transition={{ duration: 0.2 }}
-                        className="text-[#38F9D7] group-hover:text-[#43E97B]"
+                        className="text-[#144552] group-hover:text-[#1e5a6b]"
                       >
                         {category.icon}
                       </motion.div>
@@ -213,13 +215,13 @@ export default function SkillsDropdown() {
                     </div>
                     <ChevronRight
                       className={`w-4 h-4 ml-auto transition-transform duration-200 ${
-                        openSubMenus[category.name] ? "rotate-90 text-[#38F9D7]" : "text-white/60"
+                        openSubMenus[category.name] ? "rotate-90 text-[#1e5a6b]" : "text-black/60"
                       }`}
                     />
                   </div>
                 </DropdownMenuSubTrigger>
                 <DropdownMenuSubContent
-                  className="bg-gradient-to-br from-black/98 via-[#0F2027]/98 to-black/98 backdrop-blur-md border border-[#38F9D7]/40 shadow-2xl rounded-xl p-3 min-w-[300px] max-w-[350px]"
+                  className="bg-gradient-to-br from-black/98 via-[#0F2027]/98 to-black/98 backdrop-blur-md border border-[#1e5a6b]/40 shadow-2xl rounded-xl p-3 min-w-[300px] max-w-[350px]"
                   sideOffset={8}
                   alignOffset={-5}
                 >
@@ -231,7 +233,7 @@ export default function SkillsDropdown() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: skillIndex * 0.03, duration: 0.2 }}
                       >
-                        <div className="px-4 py-2.5 rounded-lg bg-white/5 hover:bg-gradient-to-r hover:from-[#38F9D7]/25 hover:to-[#43E97B]/25 text-white/90 hover:text-white transition-all duration-200 cursor-default border border-transparent hover:border-[#38F9D7]/40 hover:shadow-lg hover:shadow-[#38F9D7]/20 group/item">
+                        <div className="px-4 py-2.5 rounded-lg bg-white/5 hover:bg-gradient-to-r hover:from-[#144552]/25 hover:to-[#1e5a6b]/25 text-black/90 hover:text-black transition-all duration-200 cursor-default border border-transparent hover:border-[#144552]/40 hover:shadow-lg hover:shadow-[#144552]/20 group/item">
                           <span className="text-sm font-medium group-hover/item:translate-x-1 transition-transform duration-200 inline-block">
                             {skill}
                           </span>

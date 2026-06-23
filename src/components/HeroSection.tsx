@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import Typewriter from '@/components/Typewriter';
 import { ChevronDown } from 'lucide-react';
 import ResumePreview from './ResumePreview';
+import { useInteractiveEffects } from '@/hooks/useInteractiveEffects';
 import '../styles/hero-animations.css';
 
 interface HeroSectionProps {
@@ -28,13 +29,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   onViewWork,
   onContact,
 }) => {
+  useInteractiveEffects();
+
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative pt-16 overflow-hidden">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative pt-16 overflow-hidden interactive-element">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-[#14FFEC]/10 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
-        <div className="absolute top-1/2 -right-20 w-96 h-96 bg-[#43E97B]/10 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-20 left-1/2 w-96 h-96 bg-[#38F9D7]/10 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-4000"></div>
+        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-[#1e5a6b]/10 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
+        <div className="absolute top-1/2 -right-20 w-96 h-96 bg-[#1e5a6b]/10 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-20 left-1/2 w-96 h-96 bg-[#1e5a6b]/10 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-4000"></div>
       </div>
       
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -46,7 +49,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         >
           {/* Profile Image */}
           <motion.div
-            className="profile-image-container"
+            className="profile-image-container interactive-element"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ 
@@ -59,13 +62,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               rotate: [0, -5, 5, -5, 0],
               transition: { duration: 0.5 }
             }}
+            whileTap={{ scale: 0.98 }}
           >
             <motion.img
               src={profile.imageUrl}
               alt="Profile"
-              className="profile-image"
+              className="profile-image interactive-element"
               initial={{ scale: 1.1 }}
               whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.5 }}
             />
           </motion.div>
@@ -88,7 +93,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             transition={{ delay: 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             <Typewriter 
-              words={['FULL STACK DEVELOPER', 'AI ENTHUSIAST', 'TECHNICAL MENTOR']} 
+              words={['FULL STACK DEVELOPER', 'AI ENTHUSIAST', 'ML Developer']}
               typeSpeed={100}
               deleteSpeed={50}
               delaySpeed={1500}
@@ -103,24 +108,24 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <Badge className="skill-badge bg-[#14FFEC]/20 text-[#14FFEC] border-[#14FFEC]/30">
+            <Badge className="skill-badge bg-[#1e5a6b]/20 text-[#1e5a6b] border-[#1e5a6b]/30 interactive-element">
               AI & Data Science
             </Badge>
-            <Badge className="skill-badge bg-[#43E97B]/20 text-[#43E97B] border-[#43E97B]/30">
-              Full‑Stack
+            <Badge className="skill-badge bg-[#144552]/20 text-[#144552] border-[#144552]/30 interactive-element">
+              Full Stack
             </Badge>
-            <Badge className="skill-badge bg-[#38F9D7]/20 text-[#38F9D7] border-[#38F9D7]/30">
+            <Badge className="skill-badge bg-[#144552]/20 text-[#144552] border-[#144552]/30 interactive-element">
               Design
             </Badge>
             <motion.a 
               href={company.url} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="inline-flex"
+              className="inline-flex interactive-element"
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <Badge className="skill-badge bg-white/10 border-white/20 text-white hover:bg-white/20">
+              <Badge className="skill-badge bg-white/10 border-black/20 text-black hover:bg-white/20 interactive-element">
                 COO @ {company.name}
               </Badge>
             </motion.a>
@@ -128,7 +133,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
           {/* Title */}
           <motion.p 
-            className="text-lg md:text-xl text-white/80 mb-8 max-w-3xl mx-auto"
+            className="text-lg md:text-xl text-black/80 mb-8 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -143,32 +148,30 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="interactive-element">
               <Button
                 onClick={onViewWork}
-                className="hero-button primary px-8 py-6 text-lg"
+                className="hero-button primary px-8 py-6 text-lg interactive-element"
               >
                 View My Work
               </Button>
             </motion.div>
             
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="interactive-element">
               <Button
                 onClick={onContact}
                 variant="outline"
-                className="hero-button outline px-8 py-6 text-lg"
+                className="hero-button outline px-8 py-6 text-lg interactive-element"
               >
                 Get In Touch
               </Button>
             </motion.div>
             
             {profile.resumeUrl && (
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="interactive-element">
                 <ResumePreview 
-                  page1="/resume/page1.jpg" 
-                  page2="/resume/page2.jpg" 
                   resumeUrl={profile.resumeUrl} 
-                  className="w-full"
+                  className="w-full interactive-element"
                 />
               </motion.div>
             )}
@@ -178,12 +181,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
       {/* Scroll Indicator */}
       <motion.div
-        className="scroll-indicator"
+        className="scroll-indicator interactive-element"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5 }}
+        whileHover={{ scale: 1.2 }}
+        whileTap={{ scale: 0.9 }}
       >
-        <ChevronDown className="w-8 h-8 text-white/60" />
+        <ChevronDown className="w-8 h-8 text-black/60" />
       </motion.div>
     </section>
   );

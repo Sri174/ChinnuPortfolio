@@ -20,14 +20,17 @@ const CertificateModal: React.FC<CertificateModalProps> = ({ certification, isOp
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="w-[calc(100vw-1rem)] sm:w-[calc(100vw-2rem)] max-w-lg sm:max-w-2xl p-4 sm:p-6">
         <DialogHeader>
-          <DialogTitle>{certification.title}</DialogTitle>
+          <DialogTitle className="text-lg sm:text-2xl">{certification.title}</DialogTitle>
         </DialogHeader>
-        <p className="text-sm text-gray-500">
-          Issuer: {certification.issuer}
-        </p>
-        {/* You can add an image of the certificate here if you have it */}
+        <div className="space-y-4">
+          <p className="text-xs sm:text-sm text-gray-500">
+            <span className="font-semibold text-gray-700">Issuer: </span>
+            {certification.issuer}
+          </p>
+          {/* You can add an image of the certificate here if you have it */}
+        </div>
       </DialogContent>
     </Dialog>
   );

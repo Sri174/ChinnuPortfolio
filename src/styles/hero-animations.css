@@ -39,38 +39,127 @@
   z-index: 10;
 }
 
-/* Profile image animation */
-.profile-image-container {
-  position: relative;
-  width: 14rem;
-  height: 14rem;
-  margin: 0 auto 2rem;
-  border-radius: 50%;
-  background: linear-gradient(145deg, #14FFEC, #43E97B);
-  padding: 0.25rem;
-  box-shadow: 0 10px 30px -5px rgba(20, 255, 236, 0.2);
-  transition: all 0.3s ease;
+/* Profile image animation - Desktop */
+@media (hover: hover) and (pointer: fine) {
+  .profile-image-container {
+    position: relative;
+    width: 14rem;
+    height: 14rem;
+    margin: 0 auto 2rem;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #1e5a6b, #1e5a6b);
+    padding: 0.25rem;
+    box-shadow: 0 10px 30px -5px rgba(20, 255, 236, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+  }
+
+  .profile-image-container:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 40px -10px rgba(20, 255, 236, 0.3);
+  }
+
+  .profile-image-container:active {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 30px -8px rgba(20, 255, 236, 0.25);
+  }
+
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #0a0f12;
+    padding: 0.25rem;
+    object-fit: cover;
+    object-position: center top;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .profile-image:hover,
+  .profile-image:active {
+    transform: scale(1.05);
+  }
 }
 
-.profile-image-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px -10px rgba(20, 255, 236, 0.3);
+/* Profile image animation - Mobile/Tablet */
+@media (hover: none) and (pointer: coarse) {
+  .profile-image-container {
+    position: relative;
+    width: 14rem;
+    height: 14rem;
+    margin: 0 auto 2rem;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #1e5a6b, #1e5a6b);
+    padding: 0.25rem;
+    box-shadow: 0 10px 30px -5px rgba(20, 255, 236, 0.2);
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+  }
+
+  .profile-image-container:active {
+    transform: scale(0.98);
+    box-shadow: 0 8px 20px -5px rgba(20, 255, 236, 0.2);
+  }
+
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #0a0f12;
+    padding: 0.25rem;
+    object-fit: cover;
+    object-position: center top;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s ease;
+  }
+
+  .profile-image:active {
+    transform: scale(0.98);
+  }
 }
 
-.profile-image {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: #0a0f12;
-  padding: 0.25rem;
-  object-fit: cover;
-  object-position: center top;
-  border: 2px solid rgba(255, 255, 255, 0.1);
+/* Interactive cursor effects - Desktop only */
+@media (hover: hover) and (pointer: fine) {
+  .interactive-element {
+    cursor: pointer;
+    position: relative;
+  }
+
+  .interactive-element::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: radial-gradient(circle at var(--x) var(--y), rgba(255,255,0.15), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .interactive-element:hover::after {
+    opacity: 1;
+  }
+}
+
+/* Touch-friendly interactive elements */
+@media (hover: none) and (pointer: coarse) {
+  .interactive-element {
+    cursor: pointer;
+    position: relative;
+  }
+
+  .interactive-element:active {
+    opacity: 0.85;
+  }
 }
 
 /* Name animation */
 .hero-name {
-  background: linear-gradient(90deg, #14FFEC, #43E97B);
+  background: linear-gradient(90deg, #1e5a6b, #1e5a6b);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -84,74 +173,65 @@
   100% { background-position: 0% 50%; }
 }
 
-/* Badge hover effects */
-.skill-badge {
-  transition: all 0.3s ease;
-  border-width: 1px;
+/* Badge hover effects - Desktop */
+@media (hover: hover) and (pointer: fine) {
+  .skill-badge {
+    transition: all 0.3s ease;
+    border-width: 1px;
+    cursor: pointer;
+  }
+
+  .skill-badge:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: rgba(139, 75, 71, 0.2) !important;
+  }
 }
 
-.skill-badge:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+/* Badge touch effects - Mobile/Tablet */
+@media (hover: none) and (pointer: coarse) {
+  .skill-badge {
+    transition: all 0.2s ease;
+    border-width: 1px;
+    cursor: pointer;
+  }
+
+  .skill-badge:active {
+    transform: scale(0.98);
+    background-color: rgba(139, 75, 71, 0.15) !important;
+  }
 }
 
-/* Button animations */
-.hero-button {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  z-index: 1;
+/* Scroll indicator - Desktop */
+@media (hover: hover) and (pointer: fine) {
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+    cursor: pointer;
+  }
+
+  .scroll-indicator:hover {
+    animation: bounce 1s infinite;
+  }
 }
 
-.hero-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, #14FFEC, #43E97B);
-  z-index: -1;
-  transition: transform 0.3s ease;
-  transform: scaleX(0);
-  transform-origin: right;
-}
+/* Scroll indicator - Mobile/Tablet */
+@media (hover: none) and (pointer: coarse) {
+  .scroll-indicator {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2.5s infinite;
+    cursor: pointer;
+  }
 
-.hero-button:hover::before {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-.hero-button.primary {
-  background: linear-gradient(45deg, #14FFEC, #43E97B);
-  color: #0a0f12;
-  border: none;
-  box-shadow: 0 4px 15px rgba(20, 255, 236, 0.3);
-}
-
-.hero-button.primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(20, 255, 236, 0.4);
-}
-
-.hero-button.outline {
-  background: transparent;
-  border: 1px solid rgba(56, 249, 215, 0.4);
-  color: white;
-}
-
-.hero-button.outline:hover {
-  background: rgba(56, 249, 215, 0.1);
-  border-color: rgba(56, 249, 215, 0.7);
-}
-
-/* Scroll indicator */
-.scroll-indicator {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: bounce 2s infinite;
+  .scroll-indicator:active {
+    animation: bounce 1.5s infinite;
+  }
 }
 
 @keyframes bounce {
@@ -163,6 +243,40 @@
   }
   60% {
     transform: translateY(-5px) translateX(-50%);
+  }
+}
+
+/* Cursor following effect - hide on touch devices */
+.cursor-follower {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(20, 69, 82, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  mix-blend-mode: difference;
+  transition: transform 0.1s ease-out;
+  display: block;
+}
+
+.cursor-follower::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background-color: rgba(20, 69, 82, 0.8);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Hide cursor follower on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .cursor-follower {
+    display: none;
   }
 }
 
@@ -181,4 +295,84 @@
   .hero-buttons > * {
     width: 100%;
   }
+}
+
+@media (max-width: 640px) {
+  .profile-image-container {
+    width: 10rem;
+    height: 10rem;
+    margin: 0 auto 1.5rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .hero-buttons > * {
+    width: 100%;
+  }
+  
+  /* Optimize for small screens */
+  #hero {
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+  }
+}
+
+/* Touch feedback for mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  .hero-button:active,
+  .profile-image-container:active,
+  .skill-badge:active,
+  .interactive-element:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+  
+  /* Enhanced touch states for better feedback */
+  .hero-button {
+    touch-action: manipulation;
+  }
+  
+  .profile-image-container {
+    touch-action: manipulation;
+  }
+  
+  .skill-badge {
+    touch-action: manipulation;
+  }
+}
+
+/* General touch enhancements for all devices */
+@media (hover: hover) and (pointer: fine) {
+  /* Only apply hover effects on devices with mouse support */
+  .interactive-element:hover {
+    cursor: pointer;
+  }
+}
+
+/* Ensure proper touch targets for accessibility */
+@media (hover: none) and (pointer: coarse) {
+  .hero-button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .skill-badge {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 8px 12px;
+  }
+  
+  .profile-image-container {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Touch active state for enhanced feedback */
+.touch-active {
+  transform: scale(0.95) !important;
+  transition: transform 0.1s ease;
 }
