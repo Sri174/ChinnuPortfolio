@@ -215,7 +215,20 @@ const projects: Project[] = [
     featured: true,
   },
   {
+    id: "p3",
+    title: "Z7i Website Frontend",
+    description:
+      "Responsive, user‑friendly frontend for Z7i website with modern web practices and accessibility.",
+    image:
+      "/z7i.png",
+    technologies: ["React", "TypeScript", "Tailwind CSS"],
+    category: "Web Development",
+    githubUrl: "https://bitbucket.org/z7i-web/frontend/src/main/",
+    liveUrl: "https://z7i.in/",
+    featured: false,
+  },
 
+    {
     id: "p4",
     title: "Dreamscape Room Builder AI",
     description:
