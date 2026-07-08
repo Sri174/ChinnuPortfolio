@@ -114,7 +114,7 @@ const company = {
 };
 
 const projects: Project[] = [
-    {
+  {
     id: "p4",
     title: "Futureself AI",
     description:
@@ -128,7 +128,7 @@ const projects: Project[] = [
     featured: false,
   },
 
-  
+
   {
     id: "p_invoice_json",
     title: "Invoice to JSON Converter",
@@ -228,7 +228,7 @@ const projects: Project[] = [
     featured: false,
   },
 
-    {
+  {
     id: "p4",
     title: "Dreamscape Room Builder AI",
     description:
@@ -288,7 +288,7 @@ const projects: Project[] = [
     liveUrl: "https://dreamscape-room-builder-ai-rn7y.vercel.app/",
     featured: false,
   },
-   {
+  {
     id: "p8",
     title: "Virtual AI Interior Designer",
     description:
@@ -400,14 +400,14 @@ const softSkills: Skill[] = [
 const experiences: Experience[] = [
   {
     role: "AI & ML Developer",
-    company: "Independent",
-    period: "Present",
+    company: "Reno Infomatics Pvt. Ltd.",
+    period: "Jul 2026 - Present",
     description: "AI & ML Developer with strong expertise in Generative AI, Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), Python, React, and Full Stack Development. Experienced in designing and developing enterprise AI solutions, including ERP AI chatbots, intelligent inventory forecasting systems, document automation, and AI-powered SaaS applications."
   },
   {
     role: "AI/ML Developer Intern",
     company: "Reno Infomatics Pvt. Ltd.",
-    period: "Jan 2025 – Present",
+    period: "Dec 2025 – Jun 2026",
     description: "Developed and fine-tuned AI/ML models for enterprise ERP solutions.\nBuilt intelligent document processing systems for automated data extraction and validation.\nWorked on Invoice-to-JSON conversion pipelines using OCR, NLP, and Large Language Models.\nDesigned and trained custom machine learning models for structured data extraction from invoices and business documents.\nDeveloped AI-powered chatbot solutions integrated with ERP systems for automated user assistance and business process support.\nContributed to CRM and ERP application development by implementing AI-driven features and workflow automation.\nOptimized model performance through data preprocessing, feature engineering, evaluation, and continuous fine-tuning.\nCollaborated with cross-functional teams to deploy scalable AI solutions for real-world business operations."
   },
 
@@ -421,7 +421,7 @@ const experiences: Experience[] = [
   {
     role: "Technical Mentor",
     company: "Chronosphere, Burhanpur (Madhya Pradesh)",
-    period: "Jul 2025 – Present",
+    period: "Jul 2025 – Oct 2025",
     description:
       "Completed a 3-month Technical Internship as a Learning Management Engineer and Full-stack development team at Chronosphere, Burhanpur (Madhya Pradesh), gaining hands-on experience in managing, optimizing, and supporting learning management systems."
   },
@@ -501,7 +501,7 @@ const ResumeModal = ({ open, onOpenChange, page1, page2, resumeUrl }: { open: bo
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.3 , ease: 'easeInOut'}}
+              transition={{ delay: 0.1, duration: 0.3, ease: 'easeInOut' }}
               className="flex flex-col items-center"
             >
               <div className="w-full bg-gray-100 rounded-xl overflow-hidden shadow-lg border border-[#144552]/20">
@@ -514,7 +514,7 @@ const ResumeModal = ({ open, onOpenChange, page1, page2, resumeUrl }: { open: bo
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.3 , ease: 'easeInOut'}}
+              transition={{ delay: 0.2, duration: 0.3, ease: 'easeInOut' }}
               className="flex flex-col items-center"
             >
               <div className="w-full bg-gray-100 rounded-xl overflow-hidden shadow-lg border border-[#144552]/20">
@@ -925,7 +925,7 @@ export default function Portfolio() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 , ease: 'easeInOut'}}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="fixed inset-0 sm:hidden z-30 bg-black/20"
               />
@@ -971,7 +971,7 @@ export default function Portfolio() {
                         whileTap={{ scale: 0.96 }}
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: idx * 0.06, duration: 0.3 , ease: 'easeInOut'}}
+                        transition={{ delay: idx * 0.06, duration: 0.3, ease: 'easeInOut' }}
                         className={`px-5 py-3.5 rounded-xl text-sm font-semibold transition-all duration-500 ease-in-out flex items-center gap-3 backdrop-blur-md border ${activeSection === section
                           ? "bg-white/25 text-white shadow-lg border-white/40 ring-2 ring-white/20"
                           : "bg-white/10 text-white/95 hover:bg-white/20 hover:text-white border-white/15 hover:border-white/30"
@@ -989,7 +989,7 @@ export default function Portfolio() {
                     className="flex items-center justify-center gap-5 pt-8 border-t border-white/20"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.6, duration: 0.3 , ease: 'easeInOut'}}
+                    transition={{ delay: 0.6, duration: 0.3, ease: 'easeInOut' }}
                   >
                     <motion.a
                       href={profile.githubUrl}
@@ -1059,7 +1059,7 @@ export default function Portfolio() {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 , ease: 'easeInOut'}}
+            transition={{ duration: 0.8, ease: 'easeInOut' }}
           >
             <motion.div
               className="w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 mx-auto mb-4 sm:mb-6 md:mb-8 rounded-full bg-gradient-to-r from-[#144552] to-[#144552] p-1"
@@ -1140,7 +1140,7 @@ export default function Portfolio() {
             style={{ clipPath: 'polygon(0 0, 100% 0, 100% 30%, 0 50%)' }}
             initial={{ opacity: 0, y: -100 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2 , ease: 'easeInOut'}}
+            transition={{ duration: 1.2, ease: 'easeInOut' }}
             viewport={{ once: true }}
           />
           <motion.div
@@ -1148,7 +1148,7 @@ export default function Portfolio() {
             style={{ clipPath: 'polygon(0 70%, 100% 50%, 100% 100%, 0 100%)' }}
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2 , ease: 'easeInOut'}}
+            transition={{ duration: 1.2, ease: 'easeInOut' }}
             viewport={{ once: true }}
           />
         </div>
@@ -1156,7 +1156,7 @@ export default function Portfolio() {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 , ease: 'easeInOut'}}
+            transition={{ duration: 0.8, ease: 'easeInOut' }}
             viewport={{ once: true }}
             className="text-center mb-16"
           >
@@ -1172,7 +1172,7 @@ export default function Portfolio() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 , ease: 'easeInOut'}}
+                transition={{ duration: 0.6, delay: 0.2, ease: 'easeInOut' }}
                 viewport={{ once: true }}
                 className="relative group mb-10 overflow-hidden"
               >
@@ -1263,7 +1263,7 @@ export default function Portfolio() {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 , ease: 'easeInOut'}}
+            transition={{ duration: 0.8, ease: 'easeInOut' }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
@@ -1279,7 +1279,7 @@ export default function Portfolio() {
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 , ease: 'easeInOut'}}
+              transition={{ duration: 0.6, ease: 'easeInOut' }}
               viewport={{ once: true }}
               className="group relative overflow-hidden bg-[#144552]/10 backdrop-blur-sm rounded-2xl p-6 border border-[#144552]/40 shadow-lg shadow-black/10 hover:shadow-2xl transition-all duration-500 ease-in-out"
             >
@@ -1353,7 +1353,7 @@ export default function Portfolio() {
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 , ease: 'easeInOut'}}
+              transition={{ duration: 0.6, ease: 'easeInOut' }}
               viewport={{ once: true }}
               className="group relative overflow-hidden bg-[#144552]/10 backdrop-blur-sm rounded-2xl p-6 border border-[#144552]/40 shadow-lg shadow-black/10 hover:shadow-2xl transition-all duration-500 ease-in-out"
             >
@@ -1427,7 +1427,7 @@ export default function Portfolio() {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 , ease: 'easeInOut'}}
+            transition={{ duration: 0.8, ease: 'easeInOut' }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
@@ -1445,7 +1445,7 @@ export default function Portfolio() {
                 key={exp.role + exp.company}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, delay: idx * 0.06 , ease: 'easeInOut'}}
+                transition={{ duration: 0.45, delay: idx * 0.06, ease: 'easeInOut' }}
                 viewport={{ once: true }}
                 onClick={() => setSelectedExp(exp)}
                 className={`group relative overflow-hidden rounded-2xl border backdrop-blur-md cursor-pointer 
@@ -1464,7 +1464,7 @@ export default function Portfolio() {
                   className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#144552] via-[#144552] to-transparent"
                   initial={{ scaleY: 0 }}
                   whileInView={{ scaleY: 1 }}
-                  transition={{ duration: 0.6, delay: idx * 0.1 , ease: 'easeInOut'}}
+                  transition={{ duration: 0.6, delay: idx * 0.1, ease: 'easeInOut' }}
                   viewport={{ once: true }}
                 />
 
@@ -1550,7 +1550,7 @@ export default function Portfolio() {
                       className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#144552] to-transparent"
                       initial={{ scaleX: 0 }}
                       animate={{ scaleX: 1 }}
-                      transition={{ duration: 0.6, delay: 0.15 , ease: 'easeInOut'}}
+                      transition={{ duration: 0.6, delay: 0.15, ease: 'easeInOut' }}
                     />
 
                     <div className="flex items-start justify-between gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6 md:mb-8">
@@ -1558,7 +1558,7 @@ export default function Portfolio() {
                         className="flex items-start gap-2 sm:gap-3 md:gap-4 min-w-0 flex-1"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.1, duration: 0.3 , ease: 'easeInOut'}}
+                        transition={{ delay: 0.1, duration: 0.3, ease: 'easeInOut' }}
                       >
                         <motion.div
                           className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-lg sm:rounded-xl md:rounded-2xl bg-gradient-to-br from-[#144552] via-[#1e5a6b] to-[#A54640] flex items-center justify-center shadow-lg flex-shrink-0"
@@ -1572,7 +1572,7 @@ export default function Portfolio() {
                             className="text-base sm:text-lg md:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[#144552] to-[#1e5a6b] bg-clip-text text-transparent line-clamp-2"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ delay: 0.15 , ease: 'easeInOut'}}
+                            transition={{ delay: 0.15, ease: 'easeInOut' }}
                           >
                             {selectedExp.role}
                           </motion.h3>
@@ -1580,7 +1580,7 @@ export default function Portfolio() {
                             className="text-xs sm:text-sm md:text-base text-black/70 font-medium mt-1 line-clamp-1"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ delay: 0.2 , ease: 'easeInOut'}}
+                            transition={{ delay: 0.2, ease: 'easeInOut' }}
                           >
                             {selectedExp.company}
                           </motion.p>
@@ -1604,7 +1604,7 @@ export default function Portfolio() {
                       className="h-px bg-gradient-to-r from-[#144552]/0 via-[#144552]/40 to-[#144552]/0 mb-4 sm:mb-6 md:mb-8"
                       initial={{ scaleX: 0 }}
                       animate={{ scaleX: 1 }}
-                      transition={{ duration: 0.6, delay: 0.25 , ease: 'easeInOut'}}
+                      transition={{ duration: 0.6, delay: 0.25, ease: 'easeInOut' }}
                     />
                   </div>
 
@@ -1613,7 +1613,7 @@ export default function Portfolio() {
                     className="flex-1 overflow-y-auto px-3 sm:px-4 md:px-6 lg:px-8 pb-4 sm:pb-6 md:pb-8 scrollbar-thin scrollbar-thumb-[#144552]/30 scrollbar-track-white/5 min-h-0"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3, duration: 0.4 , ease: 'easeInOut'}}
+                    transition={{ delay: 0.3, duration: 0.4, ease: 'easeInOut' }}
                   >
                     <div className="space-y-3 sm:space-y-4">
                       {selectedExp.description.split('\n').map((line, i) => (
@@ -1622,7 +1622,7 @@ export default function Portfolio() {
                           className="text-xs sm:text-sm md:text-base text-black/80 leading-relaxed"
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.35 + i * 0.05, duration: 0.3 , ease: 'easeInOut'}}
+                          transition={{ delay: 0.35 + i * 0.05, duration: 0.3, ease: 'easeInOut' }}
                         >
                           {line}
                         </motion.p>
@@ -1635,7 +1635,7 @@ export default function Portfolio() {
                     className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#144552] to-transparent"
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.6, delay: 0.4 , ease: 'easeInOut'}}
+                    transition={{ duration: 0.6, delay: 0.4, ease: 'easeInOut' }}
                   />
                 </motion.div>
               )}
@@ -1663,7 +1663,7 @@ export default function Portfolio() {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 , ease: 'easeInOut'}}
+            transition={{ duration: 0.8, ease: 'easeInOut' }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
@@ -1715,7 +1715,7 @@ export default function Portfolio() {
                           }}
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: idx * 0.03, duration: 0.2 , ease: 'easeInOut'}}
+                          transition={{ delay: idx * 0.03, duration: 0.2, ease: 'easeInOut' }}
                           whileHover={{ x: 4 }}
                           className={`w-full px-4 py-3 text-left font-medium transition-all duration-500 ease-in-out flex items-center gap-3 ${selectedCategory === category
                             ? "bg-gradient-to-r from-[#144552] to-[#1e5a6b] text-white shadow-md"
@@ -1735,7 +1735,7 @@ export default function Portfolio() {
                             <motion.span
                               initial={{ opacity: 0 }}
                               animate={{ opacity: 1 }}
-                              transition={{ delay: 0.1 , ease: 'easeInOut'}}
+                              transition={{ delay: 0.1, ease: 'easeInOut' }}
                               className="text-white/80"
                             >
                               ✓
@@ -1756,13 +1756,13 @@ export default function Portfolio() {
                 key={project.id}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 , ease: 'easeInOut'}}
+                transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeInOut' }}
                 viewport={{ once: true }}
                 className="group h-full"
               >
                 <motion.div
                   whileHover={{ y: -8 }}
-                  transition={{ duration: 0.3 , ease: 'easeInOut'}}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
                   className="h-full"
                 >
                   <Card className="bg-white backdrop-blur-sm rounded-3xl overflow-hidden h-full flex flex-col shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out border-0">
@@ -1843,7 +1843,7 @@ export default function Portfolio() {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 , ease: 'easeInOut'}}
+            transition={{ duration: 0.8, ease: 'easeInOut' }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
@@ -1883,7 +1883,7 @@ export default function Portfolio() {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 , ease: 'easeInOut'}}
+            transition={{ duration: 0.8, ease: 'easeInOut' }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
@@ -1902,7 +1902,7 @@ export default function Portfolio() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 whileHover={{ y: -10, scale: 1.03, rotate: 0.5, transition: { duration: 0.08 } }}
-                transition={{ duration: 0.5, delay: idx * 0.05 , ease: 'easeInOut'}}
+                transition={{ duration: 0.5, delay: idx * 0.05, ease: 'easeInOut' }}
                 viewport={{ once: true }}
                 className="certificate-card group relative overflow-hidden bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-[#144552]/30 h-64 shadow-md hover:shadow-2xl transition-all duration-500 ease-in-out duration-100 hover:border-[#144552]"
                 onClick={() => setSelectedCertification(c)}
@@ -1988,14 +1988,14 @@ export default function Portfolio() {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 , ease: 'easeInOut'}}
+            transition={{ duration: 0.8, ease: 'easeInOut' }}
             viewport={{ once: true }}
             className="text-center mb-12 md:mb-16"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 , ease: 'easeInOut'}}
+              transition={{ duration: 0.5, ease: 'easeInOut' }}
               viewport={{ once: true }}
             >
               <Badge className="text-xs sm:text-sm bg-[#144552]/20 text-[#144552] border-[#144552]/30 mb-4 inline-block">
@@ -2016,7 +2016,7 @@ export default function Portfolio() {
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 , ease: 'easeInOut'}}
+              transition={{ duration: 0.8, ease: 'easeInOut' }}
               viewport={{ once: true }}
               className="group relative"
             >
@@ -2036,7 +2036,7 @@ export default function Portfolio() {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 , ease: 'easeInOut'}}
+                    transition={{ delay: 0.1, ease: 'easeInOut' }}
                     viewport={{ once: true }}
                   >
                     <label className="text-xs sm:text-sm font-medium text-[#144552] mb-2 block">Name</label>
@@ -2052,7 +2052,7 @@ export default function Portfolio() {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.15 , ease: 'easeInOut'}}
+                    transition={{ delay: 0.15, ease: 'easeInOut' }}
                     viewport={{ once: true }}
                   >
                     <label className="text-xs sm:text-sm font-medium text-[#144552] mb-2 block">Email</label>
@@ -2069,7 +2069,7 @@ export default function Portfolio() {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 , ease: 'easeInOut'}}
+                    transition={{ delay: 0.2, ease: 'easeInOut' }}
                     viewport={{ once: true }}
                   >
                     <label className="text-xs sm:text-sm font-medium text-[#144552] mb-3 block">Select Your Message</label>
@@ -2081,7 +2081,7 @@ export default function Portfolio() {
                           onClick={() => setSelectedMessage(msg)}
                           initial={{ opacity: 0, scale: 0.9 }}
                           whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 0.22 + idx * 0.03 , ease: 'easeInOut'}}
+                          transition={{ delay: 0.22 + idx * 0.03, ease: 'easeInOut' }}
                           viewport={{ once: true }}
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
@@ -2099,7 +2099,7 @@ export default function Portfolio() {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.35 , ease: 'easeInOut'}}
+                    transition={{ delay: 0.35, ease: 'easeInOut' }}
                     viewport={{ once: true }}
                   >
                     <Button
@@ -2117,7 +2117,7 @@ export default function Portfolio() {
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 , ease: 'easeInOut'}}
+              transition={{ duration: 0.8, ease: 'easeInOut' }}
               viewport={{ once: true }}
               className="flex flex-col justify-between"
             >
@@ -2126,7 +2126,7 @@ export default function Portfolio() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 , ease: 'easeInOut'}}
+                  transition={{ delay: 0.1, ease: 'easeInOut' }}
                   viewport={{ once: true }}
                 >
                   <h3 className="text-2xl sm:text-3xl font-bold text-[#144552] mb-4 sm:mb-6">Quick Links</h3>
@@ -2136,7 +2136,7 @@ export default function Portfolio() {
                       href="#"
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.15 , ease: 'easeInOut'}}
+                      transition={{ delay: 0.15, ease: 'easeInOut' }}
                       viewport={{ once: true }}
                       whileHover={{ scale: 1.15, y: -2 }}
                       className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-[#144552] to-[#1e5a6b] hover:shadow-lg transition-all duration-500 ease-in-out shadow-md flex items-center justify-center"
@@ -2149,7 +2149,7 @@ export default function Portfolio() {
                       href={`mailto:veerachinnumanikandan1@gmail.com`}
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.2 , ease: 'easeInOut'}}
+                      transition={{ delay: 0.2, ease: 'easeInOut' }}
                       viewport={{ once: true }}
                       whileHover={{ scale: 1.15, y: -2 }}
                       className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-[#144552] to-[#1e5a6b] hover:shadow-lg transition-all duration-500 ease-in-out shadow-md flex items-center justify-center"
@@ -2164,7 +2164,7 @@ export default function Portfolio() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 , ease: 'easeInOut'}}
+                  transition={{ delay: 0.2, ease: 'easeInOut' }}
                   viewport={{ once: true }}
                 >
                   <h3 className="text-2xl sm:text-3xl font-bold text-[#144552] mb-4 sm:mb-6">Connect With Me</h3>
@@ -2175,7 +2175,7 @@ export default function Portfolio() {
                       rel="noopener noreferrer"
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.25 , ease: 'easeInOut'}}
+                      transition={{ delay: 0.25, ease: 'easeInOut' }}
                       viewport={{ once: true }}
                       whileHover={{ scale: 1.1, y: -5 }}
                       className="group/social relative overflow-hidden bg-gradient-to-br from-white/20 to-white/10 rounded-2xl p-4 sm:p-6 border border-[#144552]/30 hover:border-[#144552]/60 transition-all duration-500 ease-in-out shadow-lg hover:shadow-xl flex flex-col items-center justify-center"
@@ -2196,7 +2196,7 @@ export default function Portfolio() {
                       rel="noopener noreferrer"
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.3 , ease: 'easeInOut'}}
+                      transition={{ delay: 0.3, ease: 'easeInOut' }}
                       viewport={{ once: true }}
                       whileHover={{ scale: 1.1, y: -5 }}
                       className="group/social relative overflow-hidden bg-gradient-to-br from-white/20 to-white/10 rounded-2xl p-4 sm:p-6 border border-[#144552]/30 hover:border-[#144552]/60 transition-all duration-500 ease-in-out shadow-lg hover:shadow-xl flex flex-col items-center justify-center"
@@ -2217,7 +2217,7 @@ export default function Portfolio() {
                       rel="noopener noreferrer"
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.35 , ease: 'easeInOut'}}
+                      transition={{ delay: 0.35, ease: 'easeInOut' }}
                       viewport={{ once: true }}
                       whileHover={{ scale: 1.1, y: -5 }}
                       className="group/social relative overflow-hidden bg-gradient-to-br from-white/20 to-white/10 rounded-2xl p-4 sm:p-6 border border-[#144552]/30 hover:border-[#144552]/60 transition-all duration-500 ease-in-out shadow-lg hover:shadow-xl flex flex-col items-center justify-center"
@@ -2245,7 +2245,7 @@ export default function Portfolio() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-black/100">
             © {new Date().getFullYear()} {profile.name} All rights reserved.
-COO, Skill Satron Technologies Pvt. Ltd.
+            COO, Skill Satron Technologies Pvt. Ltd.
           </p>
         </div>
       </footer>
