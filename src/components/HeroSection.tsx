@@ -39,7 +39,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="absolute top-1/2 -right-20 w-96 h-96 bg-[#1e5a6b]/10 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
         <div className="absolute -bottom-20 left-1/2 w-96 h-96 bg-[#1e5a6b]/10 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-4000"></div>
       </div>
-      
+
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -52,12 +52,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             className="profile-image-container interactive-element"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ 
+            transition={{
               delay: 0.2,
               duration: 0.8,
               ease: [0.16, 1, 0.3, 1]
             }}
-            whileHover={{ 
+            whileHover={{
               scale: 1.05,
               rotate: [0, -5, 5, -5, 0],
               transition: { duration: 0.5 }
@@ -76,7 +76,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </motion.div>
 
           {/* Name */}
-          <motion.h1 
+          <motion.h1
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 hero-name"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -86,14 +86,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </motion.h1>
 
           {/* Typewriter Effect */}
-          <motion.div 
+          <motion.div
             className="h-16 flex items-center justify-center my-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <Typewriter 
-              words={['FULL STACK DEVELOPER', 'AI ENTHUSIAST', 'ML Developer']}
+            <Typewriter
+              words={['AI/ML DEVELOPER', 'AI AUTOMATION']}
               typeSpeed={100}
               deleteSpeed={50}
               delaySpeed={1500}
@@ -102,7 +102,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </motion.div>
 
           {/* Badges */}
-          <motion.div 
+          <motion.div
             className="flex flex-wrap gap-2 justify-center mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -112,15 +112,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               AI & Data Science
             </Badge>
             <Badge className="skill-badge bg-[#144552]/20 text-[#144552] border-[#144552]/30 interactive-element">
-              Full Stack
+              AI/ML Developing
             </Badge>
             <Badge className="skill-badge bg-[#144552]/20 text-[#144552] border-[#144552]/30 interactive-element">
-              Design
+              API
             </Badge>
-            <motion.a 
-              href={company.url} 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <motion.a
+              href={company.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex interactive-element"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
@@ -132,7 +132,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </motion.div>
 
           {/* Title */}
-          <motion.p 
+          <motion.p
             className="text-lg md:text-xl text-black/80 mb-8 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -142,7 +142,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </motion.p>
 
           {/* Buttons */}
-          <motion.div 
+          <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center hero-buttons"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -156,7 +156,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 View My Work
               </Button>
             </motion.div>
-            
+
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="interactive-element">
               <Button
                 onClick={onContact}
@@ -166,11 +166,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 Get In Touch
               </Button>
             </motion.div>
-            
+
             {profile.resumeUrl && (
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="interactive-element">
-                <ResumePreview 
-                  resumeUrl={profile.resumeUrl} 
+                <ResumePreview
+                  resumeUrl={profile.resumeUrl}
                   className="w-full interactive-element"
                 />
               </motion.div>

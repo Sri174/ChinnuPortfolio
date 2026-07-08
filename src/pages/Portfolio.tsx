@@ -97,7 +97,7 @@ interface Certification {
 
 const profile = {
   name: "VEERACHINNU M",
-  title: "AI & Data Science Student • COO & Fullstack Developer",
+  title: "AI & Data Science Student • COO & AI/ML Developer",
   email: "veerachinnumanikandan1@gmail.com",
   phone: "+91 9159573303",
   location: "India",
@@ -398,6 +398,12 @@ const softSkills: Skill[] = [
 ];
 
 const experiences: Experience[] = [
+  {
+    role: "AI & ML Developer",
+    company: "Independent",
+    period: "Present",
+    description: "AI & ML Developer with strong expertise in Generative AI, Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), Python, React, and Full Stack Development. Experienced in designing and developing enterprise AI solutions, including ERP AI chatbots, intelligent inventory forecasting systems, document automation, and AI-powered SaaS applications."
+  },
   {
     role: "AI/ML Developer Intern",
     company: "Reno Infomatics Pvt. Ltd.",
@@ -1073,7 +1079,7 @@ export default function Portfolio() {
             <div className="h-12 sm:h-14 md:h-16 flex items-center justify-center my-2">
               <span className="text-sm sm:text-base md:text-lg lg:text-2xl font-[Georgia,serif] text-[#144552]">
                 <Typewriter
-                  words={['FULL STACK DEVELOPER', 'AI ENTHUSIAST']}
+                  words={['AI/ML DEVELOPER', 'AI AUTOMATION']}
                   typeSpeed={100}
                   deleteSpeed={50}
                   delaySpeed={1500}
@@ -1083,7 +1089,7 @@ export default function Portfolio() {
             </div>
             <div className="flex flex-wrap gap-1.5 sm:gap-2 justify-center mb-4 sm:mb-6">
               <Badge className="text-xs sm:text-sm bg-[#144552]/20 text-[#144552] border-[#144552]/30">AI & Data Science</Badge>
-              <Badge className="text-xs sm:text-sm bg-[#144552]/20 text-[#144552] border-[#144552]/30">Full‑Stack</Badge>
+              <Badge className="text-xs sm:text-sm bg-[#144552]/20 text-[#144552] border-[#144552]/30">AI/ML Developer</Badge>
               <Badge className="text-xs sm:text-sm bg-[#144552]/20 text-[#144552] border-[#144552]/30">Design</Badge>
               <a href={company.url} target="_blank" rel="noopener noreferrer" className="inline-flex">
                 <Badge className="text-xs sm:text-sm bg-white/10 border-black/20 text-black hover:bg-white/20 cursor-pointer">
@@ -1159,9 +1165,7 @@ export default function Portfolio() {
             </h2>
             <div className="max-w-4xl mx-auto">
               <p className="text-fluid-p text-black/80 mb-10 leading-relaxed">
-                Hi, I’m a full-stack developer who enjoys transforming imagination into working products. My journey started with curiosity about how apps function — now, I build them!
-                I love experimenting with design, developing APIs, integrating AI models, and crafting smooth user experiences. Whether it’s a fun side project or a large-scale system, I enjoy solving challenges and learning something new every day.
-                Outside of code, I explore UI/UX trends, read about tech, and brainstorm new project ideas.
+                AI & ML Developer with strong expertise in Generative AI, Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), Python, React, and Full Stack Development. Experienced in designing and developing enterprise AI solutions, including ERP AI chatbots, intelligent inventory forecasting systems, document automation, and AI-powered SaaS applications. Recognised by the Kalam Book of Records for participating in the 24-hour national-level codeathon, "Coderush."
               </p>
 
               {/* World Record Achievement Banner */}

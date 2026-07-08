@@ -9,7 +9,7 @@ interface TypewriterProps {
 }
 
 export default function Typewriter({
-  words = ['FULL STACK DEVELOPER'],
+  words = ['AI/ML DEVELOPER'],
   loop = 1,
   typeSpeed = 100,
   deleteSpeed = 50,
